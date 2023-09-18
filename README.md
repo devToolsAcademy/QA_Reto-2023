@@ -25,7 +25,7 @@ Ten en cuenta tener estudiados ciertos conceptos importantes (te dejamos unos en
 1. [Configurando las pruebas con TypeScript](#5-configurando-las-pruebas-con-typescript)
 1. [Análisis de código estatico](#6-análisis-de-código-estatico)
 1. [Configurar Integración Continua (CI)](#7-configurar-integracion-continua-ci)
-1. [Selectores CSS](#8-selectores-css)
+1. [Flujo del reto](#8-flujo-del-reto)
 1. [Page Object Model (POM)](#9-page-object-model-pom)
 1. [Mejorando los reportes - Mochawesome](#10-mejorando-los-reportes---mochawesome)
 1. [Filling form](#11-filling-form)
@@ -56,7 +56,8 @@ Ten en cuenta tener estudiados ciertos conceptos importantes (te dejamos unos en
 5. Proteger la rama `main` para que los pull request requieran revisión de otros desarrolladores y se compruebe el estado de nuestros test ("ok" :heavy_check_mark: o "fallaron" :x:) antes de hacer un merge a la rama.
 
    > Ir a Settings > Branches adicionamos una regla dando click en **add rule**. Escribimos `main` en el campo de **branch name pattern**. Una vez hecho eso, damos click en las siguientes opciones:
-   > ![branch rules](media/branch_protection_configuration.png)
+   > ![branch rules](https://github.com/devToolsAcademy/QA_Reto-2023/assets/100431019/30ee9104-aa26-41f0-ad78-0565a8a2e9f0)
+)
 
 6. Añadir como colaboradores a:
    - [abdulflorez](https://github.com/abdulflorez)
@@ -64,7 +65,7 @@ Ten en cuenta tener estudiados ciertos conceptos importantes (te dejamos unos en
 
 ## 2. Configuracion inicial del proyecto
 
-1. Instalar la versión ultima version LST de Node.js.
+1. Instalar la versión ultima version LTS de Node.js.
 
 2. Crear una nueva rama local ejecutando por consola `git checkout -b setup`.
 
