@@ -124,16 +124,20 @@ Ten en cuenta tener estudiados ciertos conceptos importantes (te dejamos unos en
         ![allow access](https://github.com/DanielCalleCO/cypress-training-doc/raw/main/media/allow-access.png)
 
     - Después, se abrirá una ventana dándote la bienvenida Cypress. Te dará a escoger entre dos opciones (E2E Testing y Component Testing). Selecciona E2E Testing.
-      ![cypress install step 1](https://github.com/DanielCalleCO/cypress-training-doc/raw/main/media/cypress-install-step-1.png)
+
+        ![cypress install step 1](https://github.com/DanielCalleCO/cypress-training-doc/raw/main/media/cypress-install-step-1.png)
 
     - Luego, Cypress mostrará el contenido de 4 archivos que agregará a nuestro proyecto: `cypress.config.js`, `cypress\support\e2e.js`, `cypress\support\commands.js`, `cypress\fixtures\example.json`. Presiona el botón de continuar.
-      ![cypress install step 2](https://github.com/DanielCalleCO/cypress-training-doc/raw/main/media/cypress-install-step-2.png)
+
+        ![cypress install step 2](https://github.com/DanielCalleCO/cypress-training-doc/raw/main/media/cypress-install-step-2.png)
 
     - A continuación, Cypress te pedira que selecciones uno de los navegadores soportados. Seleccionaras `Chrome`, y luego presionaras el botón "Start E2E Testing in Chrome".
-      ![cypress install step 3](https://github.com/DanielCalleCO/cypress-training-doc/raw/main/media/cypress-install-step-3.png)
+
+        ![cypress install step 3](https://github.com/DanielCalleCO/cypress-training-doc/raw/main/media/cypress-install-step-3.png)
 
     - Después, Cypress abrirá una ventana de Chrome y te pedira que elijas entre dos opciones. Selecciona "Scaffold example specs". Esto generará varios archivos de prueba, con ejemplos acerca de cómo utilizar cypress.
-      ![cypress install step 4](https://github.com/DanielCalleCO/cypress-training-doc/raw/main/media/cypress-install-step-4.png)
+
+        ![cypress install step 4](https://github.com/DanielCalleCO/cypress-training-doc/raw/main/media/cypress-install-step-4.png)
 
     - Por último, Cypress te mostrara todos los archivos que ha generado. Presiona el botón "Okay, I got it!"
 
