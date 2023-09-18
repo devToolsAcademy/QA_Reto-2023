@@ -27,14 +27,11 @@ Ten en cuenta tener estudiados ciertos conceptos importantes (te dejamos unos en
 1. [Configurar Integración Continua (CI)](#7-configurar-integracion-continua-ci)
 1. [Selectores CSS](#8-selectores-css)
 1. [Page Object Model (POM)](#9-page-object-model-pom)
-1. [Mejorando los selectores](#10-mejorando-los-selectores)
-1. [AAA pattern](#11-aaa-pattern)
-1. [Listas de elementos, filtros y elementos dentro de elementos](#12-listas-de-elementos-filtros-y-elementos-dentro-de-elementos)
-1. [Mejorando los reportes - Mochawesome](#13-mejorando-los-reportes---mochawesome)
-1. [Filling form](#14-filling-form)
-1. [Subiendo un archivo](#15-subiendo-un-archivo)
-1. [Descargando un archivo](#16-descargando-un-archivo)
-1. [Interactuando con IFrames](#17-interactuando-con-iframes)
+1. [Mejorando los reportes - Mochawesome](#10-mejorando-los-reportes---mochawesome)
+1. [Filling form](#11-filling-form)
+1. [Subiendo un archivo](#12-subiendo-un-archivo)
+1. [Descargando un archivo](#13-descargando-un-archivo)
+1. [Interactuando con IFrames](#14-interactuando-con-iframes)
 
 ## 1. Creación y configuración del repositorio
 
@@ -62,30 +59,19 @@ Ten en cuenta tener estudiados ciertos conceptos importantes (te dejamos unos en
    > ![branch rules](media/branch_protection_configuration.png)
 
 6. Añadir como colaboradores a:
-   - [holgiosalos](https://github.com/holgiosalos)
-   - [danielgalvis98](https://github.com/danielgalvis98)
-   - [kliver98](https://github.com/kliver98)
-   - [AlejaGonzalezV](https://github.com/AlejaGonzalezV)
-   - [NicolasB2](https://github.com/NicolasB2)
-   - [manuelq12](https://github.com/manuelq12)
-   - [Valeryibarra](https://github.com/Valeryibarra)
-   - [veronicatofino](https://github.com/veronicatofino)
+   - [abdulflorez](https://github.com/abdulflorez)
+   - [DanielCalleCO](https://github.com/DanielCalleCO)
 
 ## 2. Configuracion inicial del proyecto
 
-1. Instalar la versión `v16.X.0` de Node.js.
-
-   **Notas:**
-
-   - Recomendamos usar [nvm](https://github.com/nvm-sh/nvm) como manejador de versiones.
-   - Necesariamente no tienes que instalar la version 16, pero si recomendamos instalar una version LTS, hemos probado este workshop con las versiones `v14.X.0` ó `v16.X.0`.
+1. Instalar la versión ultima version LST de Node.js.
 
 2. Crear una nueva rama local ejecutando por consola `git checkout -b setup`.
 
 3. Crear una carpeta en la raíz del proyecto llamada `.github` con un archivo llamado `CODEOWNERS` (sin extensión) con lo siguiente:
 
    ```bash
-   * @holgiosalos @danielgalvis98 @kliver98 @AlejaGonzalezV @NicolasB2 @manuelq12 @Valeryibarra @veronicatofino
+   * @abdulflorez @DanielCalleCO
    ```
 
 4. Ejecutar en consola `npm init` y colocar la siguiente información:
@@ -97,7 +83,7 @@ Ten en cuenta tener estudiados ciertos conceptos importantes (te dejamos unos en
    | **Entry Point** | _[Por Defecto]_ |
    | **Test Command** | `cypress open` |
    | **Git Repository** | _[Por Defecto]_ |
-   | **Keywords** | ui-testing, dojo, practice, cypress |
+   | **Keywords** | ui-testing, practice, cypress |
    | **Author** | _[Su nombre]_ <_[Su correo]_> (_[su GitHub]_) |
    | **License** | MIT |
 
@@ -123,7 +109,7 @@ Ten en cuenta tener estudiados ciertos conceptos importantes (te dejamos unos en
 1. Ejecutar el siguiente comando:
 
    ```bash
-   npm install -D cypress
+   npm install cypress --save-dev
    ```
 
 2. Esto instalará cypress dentro del **node_modules**. Para verificar la correcta instalacion e iniciar la configuracion para ver el demo de cypress, ejecutamos el siguiente comando:
@@ -432,233 +418,123 @@ En esta sección se configura la integración continua por medio de GitHub Actio
 
 5. Finalmente subir los cambios al repositorio y crear un Pull Request. Se ejecutaran las pruebas en el servidor que provee GitHub Actions y se mostrara los resultados de la ejecución en el PR.
 
-## 8 Selectores CSS
+## 8 Flujos del reto.
 
-En esta sección se realiza un flujo para comprar una camiseta en la tienda de ropa: <http://automationpractice.com/>, vamos a usar los CSS selector para interactuar con cada elemento del DOM.
+En esta sección se realiza un flujo para cubrir 3 aspectos de calidad en la pagina : <https://www.demoblaze.com/index.html/>, vamos a usar los CSS selector para interactuar con cada elemento del DOM.
 
-:scroll: Un poco de teoria: Para interactuar con los elementos del DOM se pueden usar varios mecanismos como CSS selectors, XPATH, jquery+CSS. Cada uno de estos tiene diferentes beneficios como su performance, legibilidad o la complejidad de la query del elemento con el cual queremos interactuar. Usualmente los CSS selector suelen ser mas rapidos y confiables en la mayoria de navegadores sin embargo lo XPATH permiten realizar busquedas de elementos mas complejas. Te recomendamos investigar las diferencias entre ambos tipos de selectores teniendo en cuenta factores como: manteniblidad, flexiblidad y velocidad de busqueda de un elemento.
+:scroll:
 
-Vamos a realizar los siguientes pasos, para automatizar el flujo de compra:
+1. Hacer Login en la pagina mediante "Sign in"
 
-1. Primero crear el archivo `buy-shirt.cy.ts` e incluir el siguiente codigo:
+- Puntos a validar:
+  - El Login es exitoso.
+  - El nombre de usuario es el correspondiente.
 
-   ```js
-   describe("Buy a t-shirt", () => {
-     it("then the t-shirt should be bought", () => {
-       cy.visit("http://automationpractice.com/");
-       cy.get("#block_top_menu > ul > li:nth-child(3) > a").click();
-       cy.get(
-         "#center_column a.button.ajax_add_to_cart_button.btn.btn-default"
-       ).click();
-       cy.get("[style*='display: block;'] .button-container > a").click();
-       cy.get(".cart_navigation span").click();
+2. Añade al carrito almenos 1 telefono, 1 laptop y 1 monitor y completa la compra.
 
-       cy.get("#email").type("aperdomobo@gmail.com");
-       cy.get("#passwd").type("WorkshopProtractor");
+- Puntos a validar:
+  - Cuando se hace click en cada item de la tienda se muestra el item que corresponde con su titulo.
+  - En el carrito se muestra el total correcto de los precios.
+  - La compra es exitosa.
 
-       // Debes completar la prueba ...
+3. Enviar un mensaje a travez de "Contact"
 
-       cy.get("#center_column > div > p > strong").should(
-         "have.text",
-         "Your order on My Store is complete."
-       );
-     });
-   });
-   ```
+- Puntos a validar:
+  - El envio fue exitoso.
 
-   El flujo que debes continuar es:
+Puede ir un paso a la vez, primero crea el archivo `shopping-flow.cy.ts` y agrega el los selectores y las acciones necesarias con el "describe" de toda la vida y los pasos que sean necesarios, tambien podrias crear un archivo por cada Test
 
-   - Seccion de Sign In: Click en boton de Sign In (8)
-   - Seccion Address: Continuar el checkout (9)
-   - Seccion Shipping:
-     - Aceptar terminos y condiciones (10)
-     - luego continuar el checkout (11)
-   - Seccion Payment:
-     - click en pay by bank wire (12)
-     - confirmar orden (13)
+Un ejemplo:
 
-   Usa como apoyo las siguientes imagenes para conocer mas del flujo esperado, extrae los CSS selector de la UI manualmente, termina la prueba y correla local.
+```js
+describe("Logg in feature", () => {
+  beforeEach(() => {
+    cy.visit("https://www.demoblaze.com/index.html/");
+    cy.get("selectorSignin").click();
+    // pasos para logearme
+  });
 
-   ![implementation-guide](media/implementation-guide.png)
+  it("Validating successful login", () => {
+    //Pasos para test 1
+  });
+});
+```
 
-   ![buy-shirt-flow](media/buy-tshirt-flow.gif)
+En algunos pasos la red u otros factores externos a la prueba pueden afectar los tiempos de espera, asi que en el archivo de configuración de cypress `cypress.config.ts` modifica la funcion `setupNodeEvents` de la siguiente forma:
 
-2. En algunos la red u otros factores externos a la prueba pueden afectar los tiempos de espera, en el archivo de configuración de cypress `cypress.config.ts` modifica la funcion `setupNodeEvents` de la siguiente forma:
+```js
+setupNodeEvents(on, config) {
+  config.defaultCommandTimeout = 20000
+  config.responseTimeout = 20000
 
-   ```js
-   setupNodeEvents(on, config) {
-     config.defaultCommandTimeout = 20000
-     config.responseTimeout = 20000
+  // IMPORTANT return the updated config object
+  return config
+}
+```
 
-     // IMPORTANT return the updated config object
-     return config
-   }
-   ```
-
-3. Para finalizar sube tus cambios al repositorio y crea un PR.
+Para finalizar sube tus cambios al repositorio y crea un PR.
 
 ## 9 Page Object Model (POM)
 
 Page Object Model es un patron para mejorar la mantenibilidad de las pruebas ya que podemos establecer una capa intermedia entre las pruebas y UI de la aplicación, ya que los cambios que requieran las pruebas debido a cambios en la aplicación se pueden realizar rapidamente en el POM. Te recomendamos investigar el patrón y otros patrones utiles que puedan ser usados para el código de pruebas.
 
-A continuación realizar la transformación a POM, por medio de los siguientes pasos:
+1. Crea el folder `cypress/page/` donde almacenaras las vistas que requieras de tus casos para realizar tu estructura de POM `vistas.ts`, aqui un ejemplo:
 
-1. Crear el archivo `cypress/page/menu-content.page.ts` y agregar el siguiente código:
+```javascript
+  class CategoriesPage {
+      private phoneCategorie: string;
+      private menuContentPageURL: string
 
-   ```javascript
-   class MenuContentPage {
-       private tShirtMenu: string;
-       private menuContentPageURL: string
+      constructor() {
+          this.phoneCategorie = "#block_top_menu > ul > li:nth-child(3) > a";
+          this.menuContentPageURL = "https://www.demoblaze.com/index.html/"
+      }
 
-       constructor() {
-           this.tShirtMenu = "#block_top_menu > ul > li:nth-child(3) > a";
-           this.menuContentPageURL = "http://automationpractice.com/"
-       }
+      public visitMenuContentPage(): void {
+          cy.visit(this.menuContentPageURL)
+      }
 
-       public visitMenuContentPage(): void {
-           cy.visit(this.menuContentPageURL)
-       }
+      public goToPhoneCategorie(): void {
+          cy.get(this.phoneCategorie).click()
+      }
+  }
 
-       public goToTShirtMenu(): void {
-           cy.get(this.tShirtMenu).click()
-       }
-   }
-
-   export { MenuContentPage }
-   ```
+  export { CategoriesPage }
+```
 
 2. Posteriormente crear el archivo `cypress/page/index.ts` para usar como archivo de salida de todos los page object:
 
    ```javascript
-   export { MenuContentPage } from "./menu-content.page";
+   export { CategoriesPage } from ".categories.page";
    ```
 
-3. Luego modificar el archivo `buy-tshirt.cy.ts` para utilizar el POM que acabamos de crear en la prueba:
+3. Luego modificar el archivo `shopping-flow.cy.ts` para utilizar el POM que acabamos de crear en la prueba:
 
    ```javascript
-   import { MenuContentPage } from "../page/index";
+   import { CategoriesPage, Home } from "../page/index";
 
-   const menuContentPage = new MenuContentPage();
+   const homePage = new HomePage();
+   const categoriesPage = new CategoriesPage();
 
    describe("Buy a t-shirt", () => {
-     it("then should be bought a t-shirt", () => {
-       menuContentPage.visitMenuContentPage();
-       menuContentPage.goToTShirtMenu();
-       cy.get("[style*=' display: block;'] .button-container > a").click();
-       cy.get(".cart_navigation span").click();
+     beforeEach(() => {
+       homePage.visitCategoriesPage();
+       categoriesPage.login("username", "password");
+       // pasos para logearme
+     });
 
+     it("then should be bought a t-shirt", () => {
+       categoriesPage.goToPhoneCategories();
        // El resto del flujo de la prueba....
      });
    });
    ```
 
-4. Posteriormente, crear el resto de page object y reemplazarlos en la prueba. Los nombres de los page object son: **products-list.page.ts**, **shoping-cart.page.ts**, **login.page.ts**, **address-step.page.ts**, **shipping-step.page.ts** y **payment-step.page.ts**
+4. Ejecute las pruebas y verifica que pasen. Si alguna falla modificala usando los CSS locators y el tiempo de espera configurado hasta que pasen.
 
-   > **_tip:_** Agrega los page object al archivo "page/index.ts" para facilitar el import de cada page object en las pruebas.
+5. Cree un PR y solicitie revisión del punto anterior.
 
-5. Ejecute las pruebas y verifica que pasen. Si alguna falla modificala usando los CSS locators y el tiempo de espera configurado hasta que pasen.
-
-6. Cree un PR y solicitie revisión del punto anterior.
-
-## 10. Mejorando los selectores
-
-En esta sección presentaras una propuesta para los selectores que se estan usando para la pruebas:
-
-1. Realice su propia propuesta de los selectores de cada page object.
-2. Verificar que las pruebas pasen
-3. Crear un PR y solicitar revisión. El revisor comentará los selectores con los que no esta de acuerdo, en ese caso, justifique su propesta de selector. (No use **XPATH**)
-
-## 11. AAA pattern
-
-Un patrón común para escribir pruebas es el patrón AAA que nos ayuda a definir una estructura ordenada de cada prueba, por medio de 3 pasos:
-
-- **Arrange**: Preparar las condiciones necesarias para ejecutar la prueba, ej: Datos de la prueba, carga de pagina donde se ejecuta la prueba.
-- **Action**: Es la acción del usuario que realmente vamos a probar, Ej: llenar formularios, navegar a otra pagina, hacer clicks.
-- **Assert**: Verificamos los comportamientos esperados. Ej: Se muestre cierta información, guardado de datos, actualización de datos, mensajes de error, etc...
-
-Vamos a agregar una nueva prueba y la estructuramos usando el patrón AAA:
-
-`Escenario:` Verificar que al navegar a la pagina de vestidos se muestren los vestidos disponibles y sus nombres.
-
-1. Primero agregamos el archivo del Page Object para la pagina de vestidos `dresses-list.page.ts`, recuerda agregarlo al `index.ts` de la carpeta `/page`:
-
-   ```javascript
-   class DressesListPage {
-
-     private dressItem: string;
-     private dressName: string;
-
-     constructor(){
-       this.dressItem = ".product-container"
-       this.dressName = `${this.dressItem} .product-name`
-     }
-
-     getDressProducts(){
-       return cy.get(this.dressItem)
-     }
-
-     validateItemsNumber(itemsNumber: number){
-       cy.get(this.dressItem).should("have.length", itemsNumber)
-     }
-
-     validateItemsNames(names: string[]){
-       cy.get(this.dressName).each((item, index) => {
-         cy.wrap(item).should("contain.text", names[index])
-       })
-     }
-
-   }
-
-   export {DressesListPage}
-   ```
-
-2. Creamos el archivo `cypress/e2e/dresses-list.cy.ts` para realizar la prueba de la lista de vestidos.
-
-   ```javascript
-   import { MenuContentPage, DressesListPage } from "../page/index";
-
-   describe("the user navigates to the dresses page should", () => {
-     let menuContentPage: MenuContentPage;
-     let dressesListPage: DressesListPage;
-
-     before(() => {
-       menuContentPage = new MenuContentPage();
-       dressesListPage = new DressesListPage();
-     });
-
-     it("show the available dresses", () => {
-       // ... realiza la prueba
-     });
-   });
-   ```
-
-3. Crea la prueba teniendo en cuenta el patrón AAA:
-
-   - **Arrange:** Crea un arreglo con los nombre esperados de cada vestido y visita la página del menu principal.
-   - **Act:** Navega al menu de vestidos donde se carga la lista de vestidos diponibles.
-   - **Assert:** Verifica que se visualicen 5 vestidos y que tengan los nombres esperados (el orden es importante).
-
-4. Actualiza la prueba de comprar tshirt en el archivo `buy-tshirt.cy.ts` para que siga el patrón AAA.
-
-5. Verifica que las pruebas corran bien, crea un PR y solicita la revisión.
-
-> **tip:** Recuerda aplicar los Page Object al construir la prueba. Probablemente requieras agregar un metodo al `MenuContentPage`. <br/> **Nota:** Investiga como funciona los métodos **validate** en el archivo `dresses-list.page.ts`.
-
-## 12. Listas de elementos, filtros y elementos dentro de elementos
-
-En algunos escenarios debemos trabajar con lista de elementos, realizar busquedas sobre locator anidados o realizar acciones sobre elementos hijos del selector que tenemos disponible.
-
-1. Agregar una variable privada dentro del page object `products-list.page.ts` con un selector que obtendra todos los elementos HTML de los productos.
-
-2. Cree un método privado llamado `findProductByName` el cual debe retornar el contenedor (elemento HTML) del producto cuyo nombre se pasa por parametro. Puedes basarte en el comando **filter** de cypres, revisa la API de Cypress: [API de cypress](https://docs.cypress.io/api/api/table-of-contents.html)
-
-3. Modifica el método `addTShirtToCart()` para que reciba por parametro el nombre del producto. Usa el método creado previamente para darle click al boton de "Add to Cart" del producto. Puedes revisar el comando **find** the cypress.
-
-4. Ejecuta las pruebas y verifica que pasen :heavy_check_mark:
-
-5. Sube la rama, crea un pull request y solicita la revisión del cambio
-
-## 13. Mejorando los reportes - Mochawesome
+## 10. Mejorando los reportes - Mochawesome
 
 Algunas veces es bueno mejorar el reporte visual de la ejecución de nuestras pruebas, para eso agregaremos `mochawesome` y lo integraremos con cypress. Siga los siguientes pasos:
 
@@ -709,11 +585,9 @@ Algunas veces es bueno mejorar el reporte visual de la ejecución de nuestras pr
 
 6. Sube el cambio con una foto del reporte generado por `mochawesome`, crea un PR y solicita la revisión.
 
-## 14. Filling form
+## 11. Filling form
 
 Usualmente en las aplicaciones nos encontramos formularios que los usuarios deben llenar para guardar información. En esta sección interactuaremos con algunos de los componentes más comunes que nos podemos encontrar. La prueba consiste en:
-
-**tip:** Recuerda crear un page object e implementar la prueba con el patrón AAA
 
 1. Visitar la página: [Formulario de pruebas automatización](https://demoqa.com/automation-practice-form)
 2. Construir un método que llene el formulario y de click en el boton de **submit**:
@@ -732,12 +606,12 @@ Usualmente en las aplicaciones nos encontramos formularios que los usuarios debe
    personalFormPage.fillForm(personalInformation);
    ```
 
-   **tip:** Recuerda crear un page object e implementar la prueba con el patrón AAA
+   **tip:** Recuerda crear un page object
 
    <details>
    <summary><b><u>Nota:</u></b> Si tienes problemas con la ejecucion de las pruebas en esta pagina, te sale un mensaje de error de tipo "uncaught exception", click aqui para ver una solucion.</summary>
 
-   Agrega las siguientes lineas al final del archivo: `cypress/support/commands.ts`
+   Agrega las siguientes lineas al final del archivo: `cypress/support/e2e.ts`
 
    ```javascript
    // Ignoring uncaught exceptions since errors from external apps should not stop de workshop
@@ -759,7 +633,7 @@ Usualmente en las aplicaciones nos encontramos formularios que los usuarios debe
 
 4. Verifique que las pruebas pasen, cree un PR y solicite la revisión.
 
-## 15. Subiendo un archivo
+## 12. Subiendo un archivo
 
 Usualmente nos podemos encontrar con la necesidad de subir archivos por medio de nuestra aplicación web. Realizaremos los siguiente:
 
@@ -771,13 +645,11 @@ Usualmente nos podemos encontrar con la necesidad de subir archivos por medio de
    - Subir un archivo. Recibe como parametro el nombre del archivo almacenado en la carpeta: `cypress/fixtures`
    - Obtener el elemento del titulo que contiene el nombre despues de subir
 
-3. Crea el archivo de pruebas `upload-download.cy.ts` y agrega una prueba para subir un archivo usando el page object creado anteriormente. Recuerda estructurar tu prueba con el pátron AAA.
-
-   **tip:** El patrón AAA es solo para ayudarnos a tener mas orden al diseñar y contruir nuestras pruebas.
+3. Crea el archivo de pruebas `upload-download.cy.ts` y agrega una prueba para subir un archivo usando el page object creado anteriormente.
 
 4. Verifica que las pruebas pasen, crea un PR y solicita revisión.
 
-## 16. Descargando un archivo
+## 13. Descargando un archivo
 
 Para esta sección descargaremos un archivo y verificaremos el contenido, realizaremos la siguiente prueba:
 
@@ -793,7 +665,7 @@ Para esta sección descargaremos un archivo y verificaremos el contenido, realiz
 
 4. Crea un PR y solicita revisión.
 
-## 17. Interactuando con IFrames
+## 14. Interactuando con IFrames
 
 Los iframes son elementos HTML que nos podemos encontrar comunmente en aplicaciones web antiguas, pero es bueno saber como interactuar con ellos. En esta sección interactuaremos, navegaremos y verificaremos data dentro de un iframe.
 
@@ -838,8 +710,7 @@ Los iframes son elementos HTML que nos podemos encontrar comunmente en aplicacio
 
 ## Conclusión
 
-Muchas gracias por haber participado del Workshop de Cypress!!!!! Esperamos que tengas nuevos conocimientos que impulsen tu carrera profesional.
-
+Muchas gracias por haber participado, Esperamos que tengas nuevos conocimientos que impulsen tu carrera profesional.
 Te invitamos a seguir aprendiendo, y te dejamos unos temas para que investigues y sigas estudiando:
 
 - Component testing UI
@@ -856,7 +727,7 @@ Hay muchos temas que puedes seguir aprendiendo y herramientas que puedes incluir
 
 ### Given - When - Then
 
-Otro estilo de escritura de pruebas muy similar al patron AAA que ya aprendimos es el Given-When-Then, aqui te dejamos un blog para que inicies tu estudio de este estilo y un link a una libreria para que lo lleves a la practica:
+Otro estilo de escritura de pruebas es el Given-When-Then, aqui te dejamos un blog para que inicies tu estudio de este estilo y un link a una libreria para que lo lleves a la practica:
 
 - [Blog - Martin Fowler](https://martinfowler.com/bliki/GivenWhenThen.html)
 - [Libreria - Cucumber for cypress](https://www.npmjs.com/package/cypress-cucumber-preprocessor)
