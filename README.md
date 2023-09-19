@@ -57,7 +57,6 @@ Ten en cuenta tener estudiados ciertos conceptos importantes (te dejamos unos en
 
     > Ir a Settings > Branches adicionamos una regla dando click en **add rule**. Escribimos `main` en el campo de **branch name pattern**. Una vez hecho eso, damos click en las siguientes opciones:
     > ![branch rules](https://github.com/devToolsAcademy/QA_Reto-2023/assets/100431019/30ee9104-aa26-41f0-ad78-0565a8a2e9f0)
-    > )
 
 6. Añadir como colaboradores a:
     - [abdulflorez](https://github.com/abdulflorez)
@@ -426,7 +425,7 @@ En esta sección se configura la integración continua por medio de GitHub Actio
 
 ## 8. Flujos del reto
 
-En esta sección se realiza un flujo para cubrir 3 aspectos de calidad en la página: <https://www.demoblaze.com/index.html/>, vamos a usar los CSS selector para interactuar con cada elemento del DOM.
+En esta sección se realiza un flujo para cubrir 3 aspectos de calidad en la página: <https://www.demoblaze.com/index.html>, vamos a usar los CSS selector para interactuar con cada elemento del DOM.
 
 :scroll:
 
@@ -480,7 +479,7 @@ setupNodeEvents(on, config) {
 
 Para finalizar sube tus cambios al repositorio y crea un PR.
 
-## 9 Page Object Model (POM)
+## 9. Page Object Model (POM)
 
 Page Object Model es un patrón para mejorar la mantenibilidad de las pruebas ya que podemos establecer una capa intermedia entre las pruebas y UI de la aplicación, ya que los cambios que requieran las pruebas debido a cambios en la aplicación se pueden realizar rápidamente en el POM. Te recomendamos investigar el patrón y otros patrones útiles que puedan ser usados para el código de pruebas.
 
