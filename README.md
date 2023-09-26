@@ -248,22 +248,16 @@ Una vez hemos ejecutado las pruebas de ejemplo, eliminamos las carpetas que cont
 
 ## 6. Análisis de código estático
 
-1. Para realizar el análisis de código estático usaremos la herramienta ESLint para validar un conjunto de reglas sobre el código de pruebas y mantener un estilo consistente. Para esto se debe instalar ESLint como dependencia de desarrollo, luego iniciar la configuración del linter y seguimos los pasos que aparecen en consola (ver respuestas sugeridas y gif):
+1. Para realizar el análisis de código estático usaremos la herramienta ESLint para validar un conjunto de reglas sobre el código de pruebas y mantener un estilo consistente. Para esto se debe instalar ESLint como dependencia de desarrollo, luego iniciar la configuración del linter y seguimos los pasos que aparecen en consola (ver respuestas sugeridas):
 
     ```bash
     npm install eslint --save-dev
     npx eslint --init
     ```
-
     <details>
     <summary><b><u>Mostrar configuración detallada eslint</u></b></summary>
 
     ```bash
-    Need to install the following packages:
-    @eslint/create-config
-    Ok to proceed? (y)
-    Presionar `y`y enter.
-
     ? How would you like to use ESLint?
     Opción 3:   To check syntax, find problems, and enforce code style
 
@@ -271,10 +265,10 @@ Una vez hemos ejecutado las pruebas de ejemplo, eliminamos las carpetas que cont
     Opción 1: > JavaScript modules (import/export)
 
     ? Which framework does your project use? ...
-    Opción 3: > None
+    Opción 3: > None of these
 
     Does your project use TypeScript?
-    Yes
+    / Yes
 
     ? Where does your code run?
     Opción 1: > Browser
@@ -283,18 +277,19 @@ Una vez hemos ejecutado las pruebas de ejemplo, eliminamos las carpetas que cont
     Opción 1: > Use a popular style guide
 
     ? Which style guide do you want to follow? ...
-    Opción 3: > Google
+    Opción 1: > Standard-with-typescript
 
     ? What format do you want your config file to be in? ...
     Opción 1: > JavaScript
 
-    ? Would you like to install them now with npm?
+    ? Would you like to install them now?
     Yes
+
+    ? Which package manager do you want to use?
+    npm
     ```
 
     </details>
-
-    ![eslint-config](https://github.com/DanielCalleCO/cypress-training-doc/raw/main/media/eslint-configuration.gif)
 
 2. Instalar una extensión del linter para cypress que contiene reglas de estilo siguiendo las buenas prácticas que sugiere cypress:
 
