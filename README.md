@@ -277,7 +277,7 @@ Una vez hemos ejecutado las pruebas de ejemplo, eliminamos las carpetas que cont
     Opción 1: > Use a popular style guide
 
     ? Which style guide do you want to follow? ...
-    Opción 1: > Standard-with-typescript
+    Opción 1: > Standard: https://github.com/standard/eslint-config-standard-with-typescript
 
     ? What format do you want your config file to be in? ...
     Opción 1: > JavaScript
@@ -297,10 +297,11 @@ Una vez hemos ejecutado las pruebas de ejemplo, eliminamos las carpetas que cont
     npm install eslint-plugin-cypress --save-dev
     ```
 
-3. Luego agregar el plugin de cypress y las reglas en el archivo eslintrc.js
+3. Luego agregar el plugin de cypress y las reglas en el archivo eslintrc.js. Modifique también la linea "extends":
 
     ```javascript
     ...
+        "extends": ["plugin:cypress/recommended"],...
         "plugins": [
           "@typescript-eslint",
           "cypress"
