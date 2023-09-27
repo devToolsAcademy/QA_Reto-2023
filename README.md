@@ -71,7 +71,8 @@ Ten en cuenta tener estudiados ciertos conceptos importantes (te dejamos unos en
 3. Crear una carpeta en la raíz del proyecto llamada `.github` con un archivo llamado `CODEOWNERS` (sin extensión) con lo siguiente:
 
     ```bash
-    * @abdulflorez @DanielCalleCO
+    @abdulflorez
+    @DanielCalleCO
     ```
 
 4. Ejecutar en consola `npm init` y colocar la siguiente información:
