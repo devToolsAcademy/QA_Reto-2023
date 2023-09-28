@@ -504,7 +504,7 @@ Page Object Model es un patrón para mejorar la mantenibilidad de las pruebas ya
 2. Posteriormente crear el archivo `cypress/page/index.ts` para usar como archivo de salida de todos los page object:
 
    ```javascript
-   export { CategoriesPage } from ".categories.page";
+   export { CategoriesPage } from "./categories.page";
    ```
 
 3. Luego modificar el archivo `shopping-flow.cy.ts` para utilizar el POM que acabamos de crear en la prueba:
