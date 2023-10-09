@@ -688,7 +688,7 @@ Los iframes son elementos HTML que nos podemos encontrar comunmente en aplicacio
    ```
 
 4. Crea un archivo de pruebas llamado `iframe.cy.ts` y construye las siguientes pruebas:
-   - NOTA: **La pagina que vamos a usar puede presentar errores de carga si tienens una baseUrl definida en tu cypress.config ya que cypress no esta diseñado para visitar diferentes paginas, asi que tal vez deba remover ese atributo y reescribir algunos de tus visit**
+   - NOTA: **La pagina que vamos a usar puede presentar errores de carga si tienens una baseUrl definida en tu cypress.config ya que cypress no esta diseñado para visitar diferentes paginas, asi que tal vez deba remover ese atributo y reescribir algunos de tus visit** PERO si no es tu caso, no tienes que borrarlo y continua con los siguientes pasos.
 
    - Cuando un usuario navega a la página: [página iframe](https://www.w3schools.com/html/html_iframe.asp) se muestra un Iframe que tiene como título `HTML Tutorial`
 
