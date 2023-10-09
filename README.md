@@ -669,9 +669,9 @@ Para esta sección descargaremos un archivo y verificaremos el contenido, realiz
 Los iframes son elementos HTML que nos podemos encontrar comunmente en aplicaciones web antiguas, pero es bueno saber cómo interactuar con ellos. En esta sección interactuaremos, navegaremos y verificaremos data dentro de un iframe.
 
 1. Primero instalaremos el siguiente plugin de cypress: [Cypress Iframe](https://www.npmjs.com/package/cypress-iframe). Sigue las instrucciones del link.
-**Lean la documentación de la dependencia:** de esta forma encontraran como interactuar con el iframe, tambien cosas como que si hay varios iframe a la vez en una misma pagina, debes indicarle el selector del iframe con el que quieres interactuar.
+   - NOTA: **Lean la documentación de la dependencia:** de esta forma encontraran como interactuar con el iframe, tambien cosas como que si hay varios iframe a la vez en una misma pagina, debes indicarle el selector del iframe con el que quieres interactuar.
 
-2. Crea un page object `iframe.page.ts` que contenga los siguiente métodos:
+3. Crea un page object `iframe.page.ts` que contenga los siguiente métodos:
 
    ```javascript
    visit(){
@@ -687,8 +687,8 @@ Los iframes son elementos HTML que nos podemos encontrar comunmente en aplicacio
    }
    ```
 
-3. Crea un archivo de pruebas llamado `iframe.cy.ts` y construye las siguientes pruebas:
-   **La pagina que vamos a usar puede presentar errores de carga si tienens una baseUrl definida en tu cypress.config ya que cypress no esta diseñado para visitar diferentes paginas, asi que tal vez deba remover ese atributo y reescribir algunos de tus visit**
+4. Crea un archivo de pruebas llamado `iframe.cy.ts` y construye las siguientes pruebas:
+   - NOTA: **La pagina que vamos a usar puede presentar errores de carga si tienens una baseUrl definida en tu cypress.config ya que cypress no esta diseñado para visitar diferentes paginas, asi que tal vez deba remover ese atributo y reescribir algunos de tus visit**
 
    - Cuando un usuario navega a la página: [página iframe](https://www.w3schools.com/html/html_iframe.asp) se muestra un Iframe que tiene como título `HTML Tutorial`
 
@@ -697,7 +697,7 @@ Los iframes son elementos HTML que nos podemos encontrar comunmente en aplicacio
 
    - algunas pruebas pueden ser inestables por diferentes factores como latencias. Implementa una estrategia de retry si encuentras alguna inestabilidad!
 
-4. Verifica que las pruebas pasen, crea un PR y solicita la revisión.
+6. Verifica que las pruebas pasen, crea un PR y solicita la revisión.
 
    <details>
    <summary><b><u>Nota:</u></b> Si tienes problemas con la ejecución de las pruebas en esta página, te sale un mensaje de error de tipo "SecurityError: Blocked a frame with origin...", click aquí para ver una solución.</summary>
